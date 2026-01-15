@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 export default function Spotlight() {
