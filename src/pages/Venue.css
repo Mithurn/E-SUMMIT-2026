@@ -1,0 +1,55 @@
+.venue-page__header {
+    padding: calc(80px + var(--spacing-4xl)) 0 var(--spacing-3xl);
+    text-align: center;
+    background: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Venue Info - Flat */
+.venue-info {
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    box-shadow: none;
+}
+
+.venue-info__address {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+}
+
+/* Map - Flat Border */
+.venue-map__container {
+    border-radius: 0;
+    border: 1px solid var(--color-border);
+}
+
+.venue-map__container iframe {
+    filter: grayscale(1) invert(1) contrast(0.8);
+    /* Brutalist Map Style */
+}
+
+.venue-map__container:hover iframe {
+    filter: grayscale(0) invert(0) contrast(1);
+}
+
+/* Travel Card */
+.travel-card {
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+}
+
+.travel-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 6px 6px 0 var(--color-border);
+    transform: translate(-2px, -2px);
+}
+
+.travel-card__distance {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-primary);
+    border-radius: 0;
+    color: var(--color-primary);
+    font-weight: 700;
+}

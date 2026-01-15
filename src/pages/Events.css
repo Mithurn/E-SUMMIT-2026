@@ -1,0 +1,484 @@
+/* ============================================
+   EVENTS PAGE - VILLAIN THEMED
+   ============================================ */
+
+/* Villain Color Themes */
+:root {
+    --villain-doom: #FF0033;
+    --villain-doom-glow: rgba(255, 0, 51, 0.4);
+    --villain-loki: #00FF41;
+    --villain-loki-glow: rgba(0, 255, 65, 0.4);
+    --villain-ock: #FF8C00;
+    --villain-ock-glow: rgba(255, 140, 0, 0.4);
+    --villain-mysterio: #7C3AED;
+    --villain-mysterio-glow: rgba(124, 58, 237, 0.4);
+    --villain-infinity: #FFD700;
+    --villain-infinity-glow: rgba(255, 215, 0, 0.4);
+}
+
+/* Page Header */
+.events-page__header {
+    padding: calc(80px + 4rem) 0 3rem;
+    text-align: center;
+    background: var(--color-bg-primary);
+    position: relative;
+}
+
+.events-page__header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+}
+
+.events-page__title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin: 1rem 0;
+    letter-spacing: -0.02em;
+}
+
+.events-page__subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Events List */
+.events-list {
+    padding: 4rem 0;
+}
+
+.events-list .container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* ============================================
+   EVENT CARD - Base Styles
+   ============================================ */
+
+.event-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 0;
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover Effects */
+.event-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-primary);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px var(--color-primary);
+}
+
+/* Villain Image Section */
+.event-card__villain {
+    position: relative;
+    height: 100%;
+    min-height: 400px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(20, 20, 20, 1) 0%, rgba(10, 10, 10, 1) 100%);
+}
+
+.event-card__villain img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.event-card:hover .event-card__villain img {
+    transform: scale(1.08);
+}
+
+.event-card__villain-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 60%, rgba(10, 10, 10, 0.95) 100%);
+    pointer-events: none;
+}
+
+/* Content Section */
+.event-card__content {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Header with Icon and Title */
+.event-card__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.event-card__icon-wrapper {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+
+.event-card:hover .event-card__icon-wrapper {
+    background: rgba(255, 0, 51, 0.1);
+    border-color: var(--color-primary);
+}
+
+.event-card__icon {
+    color: var(--color-primary);
+    transition: transform 0.3s;
+}
+
+.event-card:hover .event-card__icon {
+    transform: scale(1.1);
+}
+
+.event-card__titles {
+    flex: 1;
+}
+
+.event-card__tagline {
+    display: block;
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+    transition: color 0.3s;
+}
+
+.event-card__name {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0;
+    transition: color 0.3s;
+}
+
+/* Description */
+.event-card__description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+}
+
+/* Details Grid */
+.event-card__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+}
+
+.event-card__detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    min-width: 140px;
+}
+
+.event-card__detail-icon {
+    color: var(--color-text-muted);
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.event-card__detail-label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.event-card__detail-value {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    font-weight: 500;
+}
+
+/* Judges Section */
+.event-card__judges {
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.event-card__judges-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+}
+
+.event-card__judges-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.event-card__judge {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.event-card:hover .event-card__judge {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.event-card__judge-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+}
+
+.event-card__judge-title {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+/* CTA Button */
+.event-card__cta {
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+/* Glow Effect */
+.event-card__glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+    border-radius: 12px;
+}
+
+.event-card:hover .event-card__glow {
+    opacity: 1;
+}
+
+/* ============================================
+   VILLAIN THEME VARIANTS
+   ============================================ */
+
+/* Dr. Doom Theme */
+.event-card--doom {
+    border-left: 4px solid var(--villain-doom);
+}
+
+.event-card--doom .event-card__tagline {
+    color: var(--villain-doom);
+}
+
+.event-card--doom:hover {
+    border-color: var(--villain-doom);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px var(--villain-doom-glow);
+}
+
+.event-card--doom .event-card__icon {
+    color: var(--villain-doom);
+}
+
+.event-card--doom:hover .event-card__icon-wrapper {
+    background: rgba(255, 0, 51, 0.15);
+    border-color: var(--villain-doom);
+}
+
+.event-card--doom .event-card__glow {
+    box-shadow: inset 0 0 60px var(--villain-doom-glow);
+}
+
+/* Loki Theme */
+.event-card--loki {
+    border-left: 4px solid var(--villain-loki);
+}
+
+.event-card--loki .event-card__tagline {
+    color: var(--villain-loki);
+}
+
+.event-card--loki:hover {
+    border-color: var(--villain-loki);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px var(--villain-loki-glow);
+}
+
+.event-card--loki .event-card__icon {
+    color: var(--villain-loki);
+}
+
+.event-card--loki:hover .event-card__icon-wrapper {
+    background: rgba(0, 255, 65, 0.15);
+    border-color: var(--villain-loki);
+}
+
+.event-card--loki .event-card__glow {
+    box-shadow: inset 0 0 60px var(--villain-loki-glow);
+}
+
+/* Doc Ock Theme */
+.event-card--ock {
+    border-left: 4px solid var(--villain-ock);
+}
+
+.event-card--ock .event-card__tagline {
+    color: var(--villain-ock);
+}
+
+.event-card--ock:hover {
+    border-color: var(--villain-ock);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px var(--villain-ock-glow);
+}
+
+.event-card--ock .event-card__icon {
+    color: var(--villain-ock);
+}
+
+.event-card--ock:hover .event-card__icon-wrapper {
+    background: rgba(255, 140, 0, 0.15);
+    border-color: var(--villain-ock);
+}
+
+.event-card--ock .event-card__glow {
+    box-shadow: inset 0 0 60px var(--villain-ock-glow);
+}
+
+/* Mysterio Theme */
+.event-card--mysterio {
+    border-left: 4px solid var(--villain-mysterio);
+}
+
+.event-card--mysterio .event-card__tagline {
+    color: var(--villain-mysterio);
+}
+
+.event-card--mysterio:hover {
+    border-color: var(--villain-mysterio);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px var(--villain-mysterio-glow);
+}
+
+.event-card--mysterio .event-card__icon {
+    color: var(--villain-mysterio);
+}
+
+.event-card--mysterio:hover .event-card__icon-wrapper {
+    background: rgba(124, 58, 237, 0.15);
+    border-color: var(--villain-mysterio);
+}
+
+.event-card--mysterio .event-card__glow {
+    box-shadow: inset 0 0 60px var(--villain-mysterio-glow);
+}
+
+/* Infinity/Thanos Theme */
+.event-card--infinity {
+    border-left: 4px solid var(--villain-infinity);
+}
+
+.event-card--infinity .event-card__tagline {
+    color: var(--villain-infinity);
+}
+
+.event-card--infinity:hover {
+    border-color: var(--villain-infinity);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px var(--villain-infinity-glow);
+}
+
+.event-card--infinity .event-card__icon {
+    color: var(--villain-infinity);
+}
+
+.event-card--infinity:hover .event-card__icon-wrapper {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: var(--villain-infinity);
+}
+
+.event-card--infinity .event-card__glow {
+    box-shadow: inset 0 0 60px var(--villain-infinity-glow);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 900px) {
+    .event-card {
+        grid-template-columns: 1fr;
+    }
+
+    .event-card__villain {
+        min-height: 300px;
+        max-height: 350px;
+    }
+
+    .event-card__villain-overlay {
+        background: linear-gradient(to bottom, transparent 50%, rgba(10, 10, 10, 0.95) 100%);
+    }
+
+    .event-card__content {
+        padding: 2rem;
+    }
+
+    .event-card__details {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .event-card__content {
+        padding: 1.5rem;
+    }
+
+    .event-card__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .event-card__judges-list {
+        flex-direction: column;
+    }
+}

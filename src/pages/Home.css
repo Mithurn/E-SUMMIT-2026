@@ -1,0 +1,637 @@
+/* ============================================
+   HOME PAGE - PREMIUM VILLAIN AESTHETIC
+   ============================================ */
+
+/* Placeholder Pages */
+.page-placeholder {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.page-placeholder h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin: 1rem 0;
+}
+
+.page-placeholder .text-secondary {
+    opacity: 0.6;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+}
+
+/* Animated Background */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 0, 51, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 0, 51, 0.08) 1px, transparent 1px);
+    background-size: 80px 80px;
+    transform: perspective(500px) rotateX(60deg);
+    transform-origin: center top;
+    opacity: 0.5;
+    animation: gridPulse 4s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.hero-glow {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: 80vw;
+    max-width: 800px;
+    max-height: 800px;
+    background: radial-gradient(circle, rgba(255, 0, 51, 0.2) 0%, transparent 60%);
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Floating Particles */
+.hero-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-primary);
+}
+
+/* Dr. Doom */
+.villain-hero {
+    position: absolute;
+    right: -5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    height: 95%;
+    max-width: 50vw;
+    pointer-events: none;
+}
+
+.villain-hero img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.8));
+}
+
+/* Hero Container - Centered */
+.hero-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 0 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Flip Clock Timer */
+.flip-timer {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.flip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    justify-content: center;
+}
+
+.flip-digit {
+    width: 32px;
+    height: 44px;
+    background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 50%, #0d0d0d 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.flip-digit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+.flip-digit::after {
+    content: '';
+    position: absolute;
+    top: calc(50% + 1px);
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.flip-digit span {
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Active digits (seconds) glow */
+.flip-digit--active {
+    border-color: rgba(255, 0, 51, 0.3);
+    box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);
+}
+
+.flip-digit--active span {
+    color: var(--color-primary);
+    text-shadow: 0 0 8px rgba(255, 0, 51, 0.5);
+}
+
+.flip-colon {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    line-height: 1;
+    margin-top: 0.25rem;
+}
+
+.flip-label {
+    width: 100%;
+    text-align: center;
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+    font-family: var(--font-mono);
+}
+
+/* Hero Title */
+.hero-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    line-height: 1;
+}
+
+.hero-title-main {
+    font-size: clamp(3.5rem, 12vw, 9rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: white;
+}
+
+.hero-title-year {
+    font-size: clamp(2rem, 8vw, 6rem);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 0, 51, 0.5);
+}
+
+/* Tagline */
+.hero-tagline {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-style: italic;
+    color: var(--color-text-secondary);
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+/* Hero Actions */
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.scroll-line {
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--color-primary), transparent);
+    transform-origin: top;
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.about-section {
+    background: #000;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-header .mono {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+}
+
+.section-header h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+}
+
+.about-text strong {
+    color: var(--color-text-primary);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.stat-card {
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.1em;
+}
+
+/* Loki */
+.villain-about {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.villain-about img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* ============================================
+   EVENTS PREVIEW SECTION
+   ============================================ */
+.events-section {
+    padding: 5rem 0;
+    background: #000;
+}
+
+.events-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+}
+
+.event-preview-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-primary);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.event-preview-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-primary);
+}
+
+.event-preview-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 0, 51, 0.1);
+    border-radius: 12px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.event-preview-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.event-preview-type {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    text-transform: uppercase;
+}
+
+.event-preview-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0.25rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.event-preview-date {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.event-preview-arrow {
+    color: var(--color-text-muted);
+    transition: all 0.3s;
+}
+
+.event-preview-card:hover .event-preview-arrow {
+    color: var(--color-primary);
+    transform: translateX(4px);
+}
+
+/* Color variants */
+.event-preview-card--doom {
+    border-left-color: #FF0033;
+}
+
+.event-preview-card--doom .event-preview-icon {
+    background: rgba(255, 0, 51, 0.1);
+    color: #FF0033;
+}
+
+.event-preview-card--doom .event-preview-type {
+    color: #FF0033;
+}
+
+.event-preview-card--loki {
+    border-left-color: #00FF41;
+}
+
+.event-preview-card--loki .event-preview-icon {
+    background: rgba(0, 255, 65, 0.1);
+    color: #00FF41;
+}
+
+.event-preview-card--loki .event-preview-type {
+    color: #00FF41;
+}
+
+.event-preview-card--ock {
+    border-left-color: #FF8C00;
+}
+
+.event-preview-card--ock .event-preview-icon {
+    background: rgba(255, 140, 0, 0.1);
+    color: #FF8C00;
+}
+
+.event-preview-card--ock .event-preview-type {
+    color: #FF8C00;
+}
+
+.event-preview-card--mysterio {
+    border-left-color: #7C3AED;
+}
+
+.event-preview-card--mysterio .event-preview-icon {
+    background: rgba(124, 58, 237, 0.1);
+    color: #7C3AED;
+}
+
+.event-preview-card--mysterio .event-preview-type {
+    color: #7C3AED;
+}
+
+.event-preview-card--infinity {
+    border-left-color: #FFD700;
+}
+
+.event-preview-card--infinity .event-preview-icon {
+    background: rgba(255, 215, 0, 0.1);
+    color: #FFD700;
+}
+
+.event-preview-card--infinity .event-preview-type {
+    color: #FFD700;
+}
+
+.center-actions {
+    text-align: center;
+}
+
+/* ============================================
+   VILLAIN SHOWCASE - Doc Ock
+   ============================================ */
+.villain-showcase {
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.villain-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+}
+
+.villain-showcase-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.villain-showcase-image {
+    position: relative;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.villain-showcase-image img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.villain-showcase-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.villain-showcase-content h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+}
+
+.villain-showcase-content .about-text {
+    font-size: 1.1rem;
+    max-width: 500px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+    .villain-hero {
+        max-width: 40vw;
+        right: -10%;
+        opacity: 0.7;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .about-grid,
+    .villain-showcase-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .villain-about,
+    .villain-showcase-image {
+        height: 350px;
+    }
+
+    .events-preview-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-timer {
+        padding: 1rem 1.5rem;
+    }
+
+    .timer-grid {
+        gap: 1rem;
+    }
+
+    .timer-value {
+        font-size: 2rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .villain-hero {
+        display: none;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,127 @@
+/* Entry Container */
+.entry-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Noise/Grain Overlay */
+.noise-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Phase Container */
+.entry-phase {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    text-align: center;
+    margin: auto;
+}
+
+/* Typography & Icons */
+.icon-locked {
+    color: var(--color-secondary);
+}
+
+.icon-granted {
+    color: var(--color-primary);
+}
+
+.text-danger {
+    color: var(--color-secondary);
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.text-white {
+    color: white;
+}
+
+.text-muted {
+    color: var(--color-text-secondary);
+}
+
+.glow-text {
+    text-shadow: 0 0 20px var(--color-primary);
+}
+
+.glitch-text {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-align: center;
+    margin: 0;
+    line-height: 1.1;
+}
+
+/* Hacking Interface */
+.hack-loader {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.hack-bar {
+    height: 100%;
+    background: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary);
+}
+
+.hack-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--color-primary);
+    font-family: var(--font-mono);
+}
+
+.spin-icon {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.code-rain {
+    font-family: var(--font-mono);
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    text-align: center;
+    width: 100%;
+    margin-top: 1rem;
+    opacity: 0.7;
+}

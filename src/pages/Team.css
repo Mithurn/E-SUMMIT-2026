@@ -1,0 +1,48 @@
+.team-page__header {
+    padding: calc(80px + var(--spacing-4xl)) 0 var(--spacing-3xl);
+    text-align: center;
+    background: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Team Card */
+.team-card {
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+}
+
+.team-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 6px 6px 0 var(--color-border);
+    transform: translate(-2px, -2px);
+}
+
+.team-card__avatar {
+    border-radius: 0;
+    /* Square Avatars */
+    border: 1px solid var(--color-border);
+}
+
+.team-card:hover .team-card__avatar {
+    border-color: var(--color-primary);
+}
+
+.team-card__avatar-placeholder {
+    background: var(--color-bg-secondary);
+    color: var(--color-primary);
+}
+
+.team-card__socials a {
+    border-radius: 0;
+    /* Square Icons */
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+}
+
+.team-card__socials a:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+    box-shadow: none;
+}
