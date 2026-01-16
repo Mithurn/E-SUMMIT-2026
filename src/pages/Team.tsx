@@ -3,8 +3,6 @@ import { Github, Linkedin, Instagram } from 'lucide-react';
 import { teamMembers, teamCategories } from '../data/team';
 import './Team.css';
 
-
-
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -23,7 +21,7 @@ const cardVariants = {
         y: 0,
         scale: 1,
         transition: {
-            type: "spring",
+            type: "spring" as const,
             stiffness: 100,
             damping: 12,
             mass: 0.5
