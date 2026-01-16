@@ -292,7 +292,7 @@
 }
 
 .section-header {
-    margin-bottom: 3rem;
+    margin-bottom: 0.5rem;
 }
 
 .section-header .mono {
@@ -305,13 +305,16 @@
 .section-header h2 {
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 800;
+    margin-bottom: 0;
+    line-height: 1.1;
 }
 
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: center;
+    align-items: start;
+    margin-top: 0;
 }
 
 .about-text {
@@ -319,6 +322,7 @@
     line-height: 1.8;
     color: var(--color-text-secondary);
     margin-bottom: 2rem;
+    margin-top: 0.5rem;
 }
 
 .about-text strong {
@@ -353,10 +357,10 @@
     letter-spacing: 0.1em;
 }
 
-/* Loki */
+/* Mysterio */
 .villain-about {
     position: relative;
-    height: 500px;
+    height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -366,6 +370,8 @@
     max-height: 100%;
     width: auto;
     object-fit: contain;
+    filter: drop-shadow(0 0 40px rgba(124, 58, 237, 0.3));
+    /* Mysterio Purple Glow */
 }
 
 /* ============================================

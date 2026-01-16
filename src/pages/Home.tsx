@@ -269,10 +269,10 @@ export default function Home() {
                             transition={{ duration: 0.8 }}
                         >
                             <motion.img
-                                src="/images/loki2.PNG"
-                                alt="Loki - The Trickster"
-                                animate={{ y: [-10, 10, -10], rotate: [-1, 1, -1] }}
-                                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+                                src="/images/mysterio2.PNG"
+                                alt="Mysterio - The Master of Illusion"
+                                animate={{ y: [-15, 15, -15], scale: [1, 1.05, 1] }}
+                                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
                             />
                         </motion.div>
                     </div>
