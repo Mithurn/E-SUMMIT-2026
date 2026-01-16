@@ -42,6 +42,12 @@ export default function Home() {
     const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+    const [particles] = useState(() => [...Array(20)].map(() => ({
+        x: Math.random() * 100 + "%",
+        duration: 8 + Math.random() * 4,
+        delay: Math.random() * 5
+    })));
+
     useEffect(() => {
         const targetDate = new Date('2026-02-04T09:00:00+05:30').getTime();
         const updateCountdown = () => {
@@ -70,12 +76,12 @@ export default function Home() {
                     <div className="hero-grid"></div>
                     <div className="hero-glow"></div>
                     <div className="hero-particles">
-                        {[...Array(20)].map((_, i) => (
+                        {particles.map((p, i) => (
                             <motion.div
                                 key={i}
                                 className="particle"
                                 initial={{
-                                    x: Math.random() * 100 + "%",
+                                    x: p.x,
                                     y: "100%",
                                     opacity: 0
                                 }}
@@ -84,9 +90,9 @@ export default function Home() {
                                     opacity: [0, 1, 1, 0]
                                 }}
                                 transition={{
-                                    duration: 8 + Math.random() * 4,
+                                    duration: p.duration,
                                     repeat: Infinity,
-                                    delay: Math.random() * 5,
+                                    delay: p.delay,
                                     ease: "linear"
                                 }}
                             />

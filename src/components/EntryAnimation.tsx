@@ -96,7 +96,7 @@ export default function EntryAnimation({ onEnter }: EntryAnimationProps) {
                         <div className="code-rain">
                             {/* Decorative code lines */}
                             <p>{` INJECTING PAYLOAD...`}</p>
-                            <p>{` DECRYPTING KEY: ${Math.random().toString(36).substring(7)}`}</p>
+                            <p>{` DECRYPTING KEY: ${'x7F9a2B'}`}</p>
                             <p>{` ROOT ACCESS: PENDING`}</p>
                         </div>
                     </motion.div>
