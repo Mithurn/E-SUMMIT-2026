@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, Lightbulb, Film, Cpu, HelpCircle, Calendar, Clock, MapPin, Users } from 'lucide-react';
 import { events } from '../data/events';
+import EventLeadersModal from '../components/EventLeadersModal';
 import './Events.css';
 
 const IconMap: Record<string, React.ElementType> = {
@@ -12,6 +14,14 @@ const IconMap: Record<string, React.ElementType> = {
 };
 
 export default function Events() {
+    const [modalOpen, setModalOpen] = useState(false);
+    const [selectedEvent, setSelectedEvent] = useState<{ name: string; tagline: string } | null>(null);
+
+    const openLeadersModal = (eventName: string, eventTagline: string) => {
+        setSelectedEvent({ name: eventName, tagline: eventTagline });
+        setModalOpen(true);
+    };
+
     return (
         <div className="events-page">
             {/* Header */}
@@ -129,6 +139,12 @@ export default function Events() {
                                         <a href="#" className="btn btn-primary">
                                             Register Now
                                         </a>
+                                        <button
+                                            className="btn btn-secondary"
+                                            onClick={() => openLeadersModal(event.name, event.tagline)}
+                                        >
+                                            Event Leaders
+                                        </button>
                                     </div>
                                 </div>
 
@@ -139,6 +155,14 @@ export default function Events() {
                     })}
                 </div>
             </section>
+
+            {/* Event Leaders Modal */}
+            <EventLeadersModal
+                isOpen={modalOpen}
+                onClose={() => setModalOpen(false)}
+                eventName={selectedEvent?.name || ''}
+                eventTagline={selectedEvent?.tagline || ''}
+            />
         </div>
     );
 }

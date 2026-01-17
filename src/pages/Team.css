@@ -7,11 +7,15 @@
 
 .team-page {
     min-height: 100vh;
-    padding-top: 100px;
+    padding-top: 160px;
+    /* Increased to clear navbar */
     background-color: #000;
     color: var(--color-text-primary);
     overflow-x: hidden;
     padding-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .team-header {
@@ -32,6 +36,7 @@
     text-shadow: 0 0 40px rgba(236, 29, 36, 0.6);
     background: linear-gradient(to bottom, #fff, var(--neon-red));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -98,81 +103,60 @@
     max-width: 1200px;
 }
 
+
 .team-grid.organizers {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
-/* Team Card - Colorful & Premium */
+/* Team Card - Premium Glassmorphism */
 .team-card {
-    /* Colorful Gradient Background */
-    background: linear-gradient(135deg,
-            rgba(20, 0, 0, 0.9) 0%,
-            rgba(40, 0, 0, 0.8) 50%,
-            rgba(10, 0, 0, 0.95) 100%);
-    border: 1px solid rgba(236, 29, 36, 0.2);
-    border-radius: 16px;
+    /* Glassmorphism Background */
+    background: rgba(15, 15, 15, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
     position: relative;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s ease;
     text-align: center;
-    padding: 2rem 1.5rem;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-/* Cool Hover Effect */
-.team-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+    padding: 2.5rem 2rem;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg,
-            transparent 0%,
-            rgba(236, 29, 36, 0.1) 45%,
-            rgba(236, 29, 36, 0.2) 50%,
-            rgba(236, 29, 36, 0.1) 55%,
-            transparent 100%);
-    transform: translateX(-100%);
-    transition: transform 0.6s;
-    z-index: 1;
-    pointer-events: none;
+    max-width: 320px;
+    margin: 0 auto;
 }
 
-.team-card:hover::before {
-    transform: translateX(100%);
-}
-
+/* Subtle glow on hover */
 .team-card:hover {
-    background: linear-gradient(135deg,
-            rgba(50, 0, 0, 0.9) 0%,
-            rgba(80, 0, 0, 0.8) 50%,
-            rgba(30, 0, 0, 0.95) 100%);
-    border-color: var(--marvel-red);
-    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(236, 29, 36, 0.5);
+    transform: translateY(-6px);
     box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.5),
-        0 0 30px rgba(236, 29, 36, 0.3),
-        inset 0 0 20px rgba(236, 29, 36, 0.1);
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(236, 29, 36, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
+/* Remove the sweep animation for cleaner look */
+.team-card::before {
+    display: none;
+}
+
+/* Larger Images */
 .card-image-wrapper {
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
     margin: 0 auto 1.5rem;
     position: relative;
     border-radius: 50%;
-    padding: 4px;
-    background: linear-gradient(45deg, rgba(236, 29, 36, 0.2), transparent);
-    transition: all 0.4s ease;
+    padding: 3px;
+    background: linear-gradient(135deg, rgba(236, 29, 36, 0.6), rgba(236, 29, 36, 0.1));
+    transition: all 0.3s ease;
     z-index: 2;
 }
 
 .team-card:hover .card-image-wrapper {
-    background: var(--marvel-red);
-    box-shadow: 0 0 25px rgba(236, 29, 36, 0.6);
-    transform: scale(1.05);
+    background: linear-gradient(135deg, var(--marvel-red), rgba(236, 29, 36, 0.3));
+    box-shadow: 0 0 30px rgba(236, 29, 36, 0.4);
 }
 
 .card-image {
@@ -180,29 +164,27 @@
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    background: #000;
-    filter: contrast(1.1);
-    transition: all 0.4s ease;
-    border: 3px solid #000;
+    background: #0a0a0a;
+    transition: all 0.3s ease;
+    border: 3px solid #0a0a0a;
 }
 
 .team-card:hover .card-image {
-    filter: contrast(1.2) brightness(1.1);
-    border-color: transparent;
+    filter: brightness(1.1);
 }
 
 .image-placeholder {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: #111;
+    background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--marvel-red);
     font-weight: 700;
-    border: 2px solid #300;
+    border: none;
 }
 
 .member-info h3 {
@@ -277,4 +259,267 @@
         width: 100px;
         height: 100px;
     }
+}
+
+/* =========================================
+   CORE COMMITTEE HIERARCHY STYLES
+   ========================================= */
+
+.core-committee-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.core-committee-container {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Add a subtle glow/border effect */
+.core-committee-container::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 24px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* Standardized Committee Tier */
+.committee-tier {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: center;
+}
+
+/* Constrain width for all Core Committee Tiers */
+.committee-tier.tier-president,
+.committee-tier.tier-convenor,
+.committee-tier.tier-coconvenors,
+.committee-tier.tier-secretaries,
+.team-group-members {
+    display: flex;
+    /* Use flex to center items without stretching */
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 2rem;
+}
+
+.committee-tier.tier-president .team-card,
+.committee-tier.tier-convenor .team-card,
+.committee-tier.tier-coconvenors .team-card,
+.committee-tier.tier-secretaries .team-card,
+.team-group-members .team-card {
+    width: 100%;
+    max-width: 320px;
+    /* Force a maximum width */
+}
+
+/* Committee Teams Grid - Stacked Vertically as Full-Width Rows */
+.committee-teams-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center the team groups */
+    gap: 4rem;
+    width: 100%;
+    max-width: 1400px;
+    margin-top: 2rem;
+}
+
+.committee-team-group {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    /* Constrain the team container width */
+}
+
+.team-group-title {
+    font-family: var(--font-orbitron);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+/* Removed team-group-members grid styles as they are now flex-centered */
+
+/* =========================================
+   EVENT HEADS SUMMARY (Internal)
+   ========================================= */
+
+.event-heads-summary {
+    width: 100%;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.summary-title {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.event-heads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.event-head-card {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.event-head-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.event-name {
+    font-family: var(--font-orbitron);
+    color: #7C4DFF;
+    /* Purple to match theme */
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.heads-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow names to wrap */
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.head-name {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.3rem 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+/* =========================================
+   TAB NAVIGATION
+   ========================================= */
+.team-tabs-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.team-tabs {
+    display: flex;
+    background: transparent;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0;
+}
+
+.tab-btn {
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    font-family: var(--font-orbitron);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    transition: all 0.3s ease;
+    border: none;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--marvel-red);
+    transition: width 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: white;
+}
+
+.tab-btn:hover::after {
+    width: 60%;
+}
+
+.tab-btn.active {
+    color: white;
+    font-weight: 600;
+}
+
+.tab-btn.active::after {
+    width: 80%;
+    background: linear-gradient(90deg, var(--marvel-red), var(--neon-red));
+    box-shadow: 0 0 10px rgba(236, 29, 36, 0.5);
+}
+
+/* Expanded Event Summary Styling (for Tab View) */
+.event-heads-summary.expanded {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.event-heads-summary.expanded .event-heads-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
 }
